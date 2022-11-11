@@ -1,0 +1,70 @@
+.auth {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../assets/img/BG.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    width: 25%;
+    background-color: #383636;
+    padding: 30px;
+    border-radius: 20px;
+    border: solid 3px #FFD700;
+
+    .logo {
+      width: 182px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+
+      input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+        caret-color: #f5c518;
+        color: #f5c518;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+      }
+
+      label{
+        font-size: 1.3rem;
+        text-align: start;
+      }
+    }
+    input[type="submit"] {
+      background-color: #f5c518;
+      width: 60%;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 15px 15px;
+      font-weight: bold;
+      margin: 0 auto;
+      cursor: pointer;
+      font-size: 1.5rem;
+      border: solid 3px transparent;
+      transition: .3s ease-in-out all;
+
+      &:hover{
+        background-color: transparent;
+        color: #f5c518;
+        border: solid 3px #f5c518;
+      }
+    }
+  }
+}

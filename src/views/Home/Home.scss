@@ -1,0 +1,137 @@
+.home-header {
+    width: 80%;
+    margin: 100px auto;
+
+    .slogan-container {
+        gap: 50px;
+
+        .slogan {
+            font-size: 2.5rem;
+        }
+
+        .yellow-button {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.our-creations {
+    width: 80%;
+    margin: 100px auto auto auto;
+
+    .our-creations-title {
+        font-size: 2.5rem;
+    }
+
+    .filter {
+        gap: 50px;
+        margin-top: 50px;
+
+        .select-filter {
+            appearance: none;
+            cursor: pointer;
+            border: solid 3px #f5c518;
+            background-color: #383636;
+            color: white;
+            padding: 13px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+            transition: .3s ease-in-out all;
+            font-size: 1.2rem;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            option {
+                font-weight: bold;
+                text-transform: uppercase;
+
+                &:checked {
+                    background-color: #f5c518;
+                }
+            }
+        }
+
+        .reset-filter {
+            cursor: pointer;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: .3s ease-in-out all;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .our-creations-items-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        place-items: center;
+        row-gap: 100px;
+        margin-top: 150px;
+
+        .our-creations-item {
+            width: 75%;
+            height: 500px;
+            border-radius: 20px;
+            background-color: #383636;
+
+            .our-creations-item-img-wrapper {
+                height: 50%;
+
+                .our-creations-item-img {
+                    position: relative;
+                    top: -50px;
+                    width: 400px;
+                    height: auto;
+                }
+            }
+
+            .our-creations-item-text {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px 40px;
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                background-color: #6D6D6D;
+
+                .our-creations-item-name {
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                }
+
+                .our-creations-item-price {
+                    font-size: 1.4rem;
+                }
+
+                .our-creation-item-footer {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .our-creation-item-stats {
+                        display: flex;
+                        gap: 20px;
+                    }
+
+                    .row {
+                        align-items: center;
+
+                        span {
+                            font-size: 1.2rem;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

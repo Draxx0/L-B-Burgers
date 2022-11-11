@@ -1,0 +1,139 @@
+.shop {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 25%;
+  height: 100vh;
+  background-color: #221f1d;
+  border-left: 1px solid #383636;
+  position: fixed;
+  top: 0;
+  padding: 120px 50px 30px 50px;
+  transition: all 0.3s ease-in-out;
+
+  .shop-title {
+    margin: 0 auto;
+    position: relative;
+    width: fit-content;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 75%;
+      height: 3px;
+      border-radius: 50px;
+      background-color: #f5c518;
+    }
+  }
+
+  .shop-item-container {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    overflow-y: scroll;
+    gap: 50px;
+    padding: 20px 0;
+
+    .shop-item {
+      width: 100%;
+      height: 350px;
+      border-radius: 20px;
+      background-color: #383636;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      animation: fadeIn 0.5s ease-in-out forwards;
+
+      .shop-image-wrapper {
+        height: 40%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .shop-image {
+          position: relative;
+          top: -10px;
+        }
+      }
+
+      .shop-item-text {
+        height: 60%;
+        padding: 0px 20px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .shop-item-name {
+          font-size: 1.6rem;
+        }
+
+        .shop-item-price {
+          font-size: 1.4rem;
+        }
+
+        .shop-button-row {
+          justify-content: space-between;
+        }
+      }
+    }
+
+    .shop-delete-all {
+      margin: auto;
+
+      .black-button {
+        background-color: #f5c518;
+      }
+    }
+  }
+
+  .shop-total {
+    text-align: center;
+    gap: 20px;
+
+    .shop-total-text {
+      position: relative;
+      margin: auto;
+      font-size: 1.5em;
+      font-weight: bold;
+      width: fit-content;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 75%;
+        height: 3px;
+        border-radius: 50px;
+        background-color: #f5c518;
+      }
+    }
+
+    .shop-total-price {
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+  }
+}
+
+.active {
+  right: 0;
+}
+
+.not-active {
+  right: -100%;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

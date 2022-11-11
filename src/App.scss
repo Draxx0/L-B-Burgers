@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #221F1D;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: .3s ease-in-out all;
+
+    &:hover {
+        opacity: 70%;
+    }
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.colored {
+    color: #f5c518;
+}
+
+.black-button {
+    background-color: #221f1d;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: white;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.yellow-button {
+    background-color: #f5c518;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: white;
+    font-weight: bold;
+    width: fit-content;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #383636;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
