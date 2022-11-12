@@ -10,6 +10,12 @@
   top: 0;
   padding: 120px 50px 30px 50px;
   transition: all 0.3s ease-in-out;
+  z-index: 2;
+
+  .empty-basket{
+    text-align: center;
+    font-size: 1.1rem;
+  }
 
   .shop-title {
     margin: 0 auto;

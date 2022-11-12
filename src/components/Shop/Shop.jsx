@@ -1,105 +1,75 @@
 import "./Shop.scss";
 
-const Shop = ({ isShopActive }) => {
-  console.log("from Shop", isShopActive);
+const Shop = ({
+  isShopActive,
+  basket,
+  setBasket,
+  basketTotalPrice,
+  setBasketTotalPrice,
+}) => {
+  const handleClick = (index) => {
+    setBasketTotalPrice(basketTotalPrice - basket[index].price);
+    basket.splice(index, 1);
+    setBasket([...basket]);
+  };
+
+  const handleAdd = (index) => {
+    setBasketTotalPrice(basketTotalPrice + basket[index].price);
+    basket[index].quantity++;
+    setBasket([...basket]);
+  };
+
+  const handleDeleteAll = () => {
+    setBasketTotalPrice(0);
+    setBasket([]);
+  };
 
   return (
     <div className={isShopActive ? "active shop" : "not-active shop"}>
       <h2 className="shop-title">Votre panier</h2>
 
-      <div className="shop-item-container">
-        <div className="shop-item">
-          <div className="shop-image-wrapper">
-            <img
-              src="https://via.placeholder.com/100"
-              alt=""
-              className="shop-image"
-            />
-            <img
-              src="https://via.placeholder.com/100"
-              alt=""
-              className="shop-image"
-            />
-            <img
-              src="https://via.placeholder.com/100"
-              alt=""
-              className="shop-image"
-            />
-          </div>
-          <div className="shop-item-text column">
-            <span className="shop-item-name">Menu Black First</span>
-            <span className="shop-item-price">12.99€</span>
-            <div className="row shop-button-row">
-              <button className="black-button">Supprimer</button>
-              <button className="black-button">Ajouter</button>
+      {basket.length === 0 ? (
+        <p className="empty-basket">Votre panier est vide</p>
+      ) : (
+        <div className="shop-item-container">
+          {basket.map((item, index) => (
+            <div className="shop-item" key={item.id}>
+              <div className="shop-image-wrapper">
+                <img src={item.image} alt="" className="shop-image" />
+              </div>
+              <div className="shop-item-text column">
+                <span className="shop-item-name">{item.name}</span>
+                <span className="shop-item-price">{item.price} €</span>
+                <span className="shop-item-price">Quantité(s) {item.quantity}</span>
+                <div className="row shop-button-row">
+                  <button
+                    className="black-button"
+                    onClick={() => handleClick(index)}
+                  >
+                    Supprimer
+                  </button>
+                  <button
+                    className="black-button"
+                    onClick={() => handleAdd(index)}
+                  >
+                    Ajouter
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          ))}
 
-        <div className="shop-item">
-          <div className="shop-image-wrapper">
-            <img
-              src="https://via.placeholder.com/100"
-              alt=""
-              className="shop-image"
-            />
-            <img
-              src="https://via.placeholder.com/100"
-              alt=""
-              className="shop-image"
-            />
-            <img
-              src="https://via.placeholder.com/100"
-              alt=""
-              className="shop-image"
-            />
-          </div>
-          <div className="shop-item-text column">
-            <span className="shop-item-name">Menu Black First</span>
-            <span className="shop-item-price">12.99€</span>
-            <div className="row shop-button-row">
-              <button className="black-button">Supprimer</button>
-              <button className="black-button">Ajouter</button>
-            </div>
+          <div className="shop-delete-all">
+            <button className="black-button" onClick={() => handleDeleteAll()}>
+              Tout supprimer
+            </button>
           </div>
         </div>
-
-        <div className="shop-item">
-          <div className="shop-image-wrapper">
-            <img
-              src="https://via.placeholder.com/100"
-              alt=""
-              className="shop-image"
-            />
-            <img
-              src="https://via.placeholder.com/100"
-              alt=""
-              className="shop-image"
-            />
-            <img
-              src="https://via.placeholder.com/100"
-              alt=""
-              className="shop-image"
-            />
-          </div>
-          <div className="shop-item-text column">
-            <span className="shop-item-name">Menu Black First</span>
-            <span className="shop-item-price">12.99€</span>
-            <div className="row shop-button-row">
-              <button className="black-button">Supprimer</button>
-              <button className="black-button">Ajouter</button>
-            </div>
-          </div>
-        </div>
-
-        <div className="shop-delete-all">
-          <button className="black-button">Tout supprimer</button>
-        </div>
-      </div>
+      )}
 
       <div className="shop-total column">
         <span className="shop-total-text">Prix Total</span>
-        <span className="shop-total-price">12.99€</span>
+        <span className="shop-total-price">{basketTotalPrice} €</span>
       </div>
     </div>
   );

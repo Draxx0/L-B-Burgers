@@ -1,30 +1,14 @@
-.home-header {
-    width: 80%;
-    margin: 100px auto;
-
-    .slogan-container {
-        gap: 50px;
-
-        .slogan {
-            font-size: 2.5rem;
-        }
-
-        .yellow-button {
-            font-size: 1.5rem;
-        }
-    }
-}
-
-.our-creations {
+#menus {
     width: 80%;
     margin: 100px auto auto auto;
 
-    .our-creations-title {
+    .menus-title {
         font-size: 2.5rem;
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
     }
 
-
-    .our-creations-items-container {
+    .menus-items-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
@@ -32,24 +16,25 @@
         row-gap: 100px;
         margin-top: 150px;
 
-        .our-creations-item {
+        .menu-item {
             width: 75%;
             height: 450px;
             border-radius: 20px;
             background-color: #383636;
 
-            .our-creations-item-img-wrapper {
+            .menu-item-img-wrapper {
                 height: 40%;
 
-                .our-creations-item-img {
+                .menu-item-img {
                     position: relative;
                     top: -50px;
+                    left: 50px;
                     width: 400px;
                     height: auto;
                 }
             }
 
-            .our-creations-item-text {
+            .menu-item-text {
                 justify-content: space-between;
                 padding: 20px 40px;
                 height: 60%;
@@ -57,23 +42,43 @@
                 flex-direction: column;
                 background-color: #6D6D6D;
 
-                .our-creations-item-name {
+                .menu-item-name {
                     font-size: 1.6rem;
                     font-weight: bold;
                 }
 
-                .our-creations-item-price {
-                    font-size: 1.4rem;
+                .menu-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    .menu-content-item {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        font-size: 1.1rem;
+                        font-weight: 500;
+
+                        .menu-content-item-img {
+                            width: 32px;
+                            height: 32px;
+                        }
+                    }
                 }
 
-                .our-creation-item-footer {
+                .menu-item-footer {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
 
-                    .our-creation-item-stats {
+                    .menu-item-price {
                         display: flex;
                         gap: 20px;
+
+                        .price-img {
+                            width: 42px;
+                            height: 42px;
+                        }
                     }
 
                     .row {

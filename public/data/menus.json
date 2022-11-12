@@ -1,65 +1,33 @@
 [
-    {
-      "id": 1,
-      "name": "Black First",
-      "price": 12.99,
-      "image": "../img/blackfirst.png",
-      "description":  "Le Black First est un incontournable, une viande cuite à la flamme, des crudité fraîche arrivant tout droit de nos producteurs locaux, un fromage fondant et un pain onctueux.",
-      "note": 4.8,
-      "rank": 1,
-      "ingrediants": {
-        "bread": "black",
-        "meat": "beef",
-        "cheese": "cheddar",
-        "sauce": "mayo"
+  {
+    "id": 1,
+    "name": "Menu Black First",
+    "price": 13,
+    "quantity": 1,
+    "image": "../img/blackfirstmenu.png",
+    "content": [
+      {
+        "contentId": 1,
+        "burger": "Burger de Boeuf - Black First",
+        "beverage": "Boisson au choix",
+        "fries": "Frites de pomme de terre ou de patate douce"
       }
-    },
-    
-    {
-      "id": 2,
-      "name": "White Sea",
-      "price": 14.99,
-      "image": "../img/blackfirst.png",
-      "description":  "Le Black First est un incontournable, une viande cuite à la flamme, des crudité fraîche arrivant tout droit de nos producteurs locaux, un fromage fondant et un pain onctueux.",
-      "note": 4.8,
-      "rank": 4,
-      "ingrediants": {
-        "bread": "white",
-        "meat": "salmon",
-        "cheese": "cheddar",
-        "sauce": "mayo"
-      }
-    },
+    ]
+  },
 
-    {
-      "id": 3,
-      "name": "Black First",
-      "price": 12.99,
-      "image": "../img/blackfirst.png",
-      "description":  "Le Black First est un incontournable, une viande cuite à la flamme, des crudité fraîche arrivant tout droit de nos producteurs locaux, un fromage fondant et un pain onctueux.",
-      "note": 4.8,
-      "rank": 1,
-      "ingrediants": {
-        "bread": "black",
-        "meat": "beef",
-        "cheese": "cheddar",
-        "sauce": "mayo"
+  {
+    "id": 2,
+    "name": "Menu Sea White",
+    "price": 13,
+    "quantity": 1,
+    "image": "../img/blackfirstmenu.png",
+    "content": [
+      {
+        "contentId": 2,
+        "burger": "Burger de Poisson - Sea White",
+        "beverage": "Boisson au choix",
+        "fries": "Frites de pomme de terre ou de patate douce"
       }
-    },
-    
-    {
-      "id": 4,
-      "name": "White Sea",
-      "price": 14.99,
-      "image": "../img/blackfirst.png",
-      "description":  "Le Black First est un incontournable, une viande cuite à la flamme, des crudité fraîche arrivant tout droit de nos producteurs locaux, un fromage fondant et un pain onctueux.",
-      "note": 4.8,
-      "rank": 4,
-      "ingrediants": {
-        "bread": "white",
-        "meat": "salmon",
-        "cheese": "cheddar",
-        "sauce": "mayo"
-      }
-    }
+    ]
+  }
 ]
