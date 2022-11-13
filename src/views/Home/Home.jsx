@@ -80,6 +80,8 @@ const Home = ({ burgers }) => {
           ))}
         </div>
       </div>
+
+      
     </section>
   );
 };

@@ -4,7 +4,7 @@ import shop from "../../assets/img/bag.png";
 import closeShop from "../../assets/img/close.png";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ user, isShopActive, setIsShopActive }) => {
+const Navbar = ({ user, isAuth, isShopActive, setIsShopActive }) => {
   const { firstname, lastname } = user;
 
   const handleClick = () => {
@@ -12,7 +12,7 @@ const Navbar = ({ user, isShopActive, setIsShopActive }) => {
   };
   return (
     <>
-      {firstname && lastname ? (
+      {isAuth ? (
         <nav className="nav">
           <div className="nav-wrapper">
             <img src={logo} alt="" />
@@ -49,44 +49,7 @@ const Navbar = ({ user, isShopActive, setIsShopActive }) => {
             </div>
           </div>
         </nav>
-      ) : (
-        <nav className="nav">
-          <div className="nav-wrapper">
-            <img src={logo} alt="" />
-            <h5 className="welcome-user">
-              Bonjour{" "}
-              <span className="colored">
-                {firstname} {lastname}
-              </span>
-            </h5>
-            <ul className="nav-list">
-              <li className="nav-item">
-                <Link to="/home">Accueil</Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to="/menus">Menus</Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to="/services">Service</Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to="/contact">Contact</Link>
-              </li>
-            </ul>
-
-            <div className="nav-btn">
-              <img
-                src={isShopActive ? closeShop : shop}
-                alt=""
-                onClick={() => handleClick()}
-              />
-            </div>
-          </div>
-        </nav>
-      )}
+      ) : null}
     </>
   );
 };

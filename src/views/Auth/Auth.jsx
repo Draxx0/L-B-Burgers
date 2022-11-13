@@ -3,13 +3,14 @@ import logo from "../../assets/img/logo-2x.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Auth = ({ setUser }) => {
+const Auth = ({ setUser, setIsAuth }) => {
   const [credentials, setCredentials] = useState({});
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setUser(credentials);
+    setIsAuth(true);
     navigate("/home");
   };
 

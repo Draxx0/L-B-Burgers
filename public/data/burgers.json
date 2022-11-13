@@ -17,10 +17,10 @@
     {
       "id": 2,
       "name": "White Sea",
-      "image": "../img/blackfirst.png",
+      "image": "../img/seawhite.png",
       "description":  "Le Black First est un incontournable, une viande cuite à la flamme, des crudité fraîche arrivant tout droit de nos producteurs locaux, un fromage fondant et un pain onctueux.",
       "note": 4.8,
-      "rank": 4,
+      "rank": 2,
       "ingrediants": {
         "bread": "white",
         "meat": "salmon",
@@ -31,11 +31,11 @@
 
     {
       "id": 3,
-      "name": "Black First",
-      "image": "../img/blackfirst.png",
+      "name": "Chicka-Chicka",
+      "image": "../img/chicka-chicka.png",
       "description":  "Le Black First est un incontournable, une viande cuite à la flamme, des crudité fraîche arrivant tout droit de nos producteurs locaux, un fromage fondant et un pain onctueux.",
       "note": 4.8,
-      "rank": 1,
+      "rank": 3,
       "ingrediants": {
         "bread": "black",
         "meat": "beef",
@@ -46,11 +46,11 @@
     
     {
       "id": 4,
-      "name": "White Sea",
-      "image": "../img/blackfirst.png",
+      "name": "Ve-Gan",
+      "image": "../img/Ve-Gan.png",
       "description":  "Le Black First est un incontournable, une viande cuite à la flamme, des crudité fraîche arrivant tout droit de nos producteurs locaux, un fromage fondant et un pain onctueux.",
       "note": 4.8,
-      "rank": 4,
+      "rank": 5,
       "ingrediants": {
         "bread": "white",
         "meat": "salmon",

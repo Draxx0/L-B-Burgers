@@ -29,7 +29,7 @@ const Menus = ({
   };
   return (
     <section id="menus">
-      <h1 className="menus-title">L&B - Menus</h1>
+      <h1 className="page-title">L&B - Menus</h1>
 
       <div className="filter row">
         <select name="select" id="" className="select-filter">

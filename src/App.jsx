@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Shop from "./components/Shop/Shop";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [user, setUser] = useState([]);
@@ -13,6 +14,7 @@ function App() {
   const [menus, setMenus] = useState([]);
   const [basket, setBasket] = useState([]);
   const [basketTotalPrice, setBasketTotalPrice] = useState(0);
+  const [isAuth, setIsAuth] = useState(false);
 
   const fetchBurgers = () => {
     fetch("./data/burgers.json")
@@ -38,6 +40,7 @@ function App() {
           user={user}
           isShopActive={isShopActive}
           setIsShopActive={setIsShopActive}
+          isAuth={isAuth}
         />
         <Shop
           isShopActive={isShopActive}
@@ -58,7 +61,9 @@ function App() {
           setBasket={setBasket}
           basketTotalPrice={basketTotalPrice}
           setBasketTotalPrice={setBasketTotalPrice}
+          setIsAuth={setIsAuth}
         />
+        <Footer isAuth={isAuth} setIsAuth={setIsAuth}/>
       </BrowserRouter>
     </div>
   );

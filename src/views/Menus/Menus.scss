@@ -2,12 +2,6 @@
     width: 80%;
     margin: 100px auto auto auto;
 
-    .menus-title {
-        font-size: 2.5rem;
-        font-weight: bold;
-        font-family: 'Poppins', sans-serif;
-    }
-
     .menus-items-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

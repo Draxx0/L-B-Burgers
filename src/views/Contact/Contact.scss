@@ -1,0 +1,89 @@
+#contact {
+    width: 80%;
+    margin: 100px auto auto auto;
+
+    .page-column {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .page-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+    }
+
+    .contact-form {
+        margin: 100px auto auto auto;
+
+
+        .row {
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 200px;
+
+            .left-form {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 50px;
+                width: 50%;
+            }
+
+            .right-form {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                label {
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+            }
+
+            input,
+            select {
+                padding: 10px 20px;
+            }
+
+            select {
+                appearance: none;
+            }
+
+            option:checked {
+                background-color: #f5c518;
+            }
+
+            .form-input,
+            textarea {
+                background-color: #383636;
+                border: solid 3px #f5c518;
+                border-radius: 50px;
+                outline: none;
+                caret-color: #f5c518;
+                color: white;
+                font-weight: bold;
+                resize: none;
+                font-size: 1.2rem;
+            }
+
+            textarea {
+                height: 100%;
+                padding: 30px 20px;
+            }
+        }
+
+        .yellow-button {
+            display: flex;
+            margin: 50px auto auto auto;
+            cursor: pointer;
+        }
+    }
+
+}
