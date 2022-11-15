@@ -12,7 +12,7 @@
   transition: all 0.3s ease-in-out;
   z-index: 2;
 
-  .empty-basket{
+  .empty-basket {
     text-align: center;
     font-size: 1.1rem;
   }
@@ -93,6 +93,10 @@
         background-color: #f5c518;
       }
     }
+  }
+
+  .order-btn {
+    margin: auto;
   }
 
   .shop-total {

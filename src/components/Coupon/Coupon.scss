@@ -1,0 +1,56 @@
+.coupon-code {
+    position: fixed;
+    bottom: 5%;
+    right: -200%;
+    background-color: #383636;
+    border: solid 3px #f5c518;
+    border-radius: 20px;
+    width: 30%;
+    height: 35vh;
+    z-index: 10;
+
+    .coupon-code-wrapper {
+        position: relative;
+        background-image: url('../../assets/img/BG.png');
+        background-size: cover;
+        padding: 30px;
+        height: 100%;
+
+        .close-coupon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 24px;
+            cursor: pointer;
+        }
+
+        .coupon-code-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            gap: 10px;
+
+            .coupon-code-code {
+                position: relative;
+                font-size: 1.2rem;
+                font-weight: bold;
+                background-color: #f5c518;
+                padding: 10px 20px;
+                width: fit-content;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: .3s ease-in-out all;
+
+                &:hover {
+                    color: #383636;
+                }
+            }
+        }
+    }
+}
+
+.active-coupon {
+    right: 5%;
+    transition: 1s ease-in-out all;
+}

@@ -13,19 +13,25 @@ const Menus = ({
   setBasketTotalPrice,
 }) => {
   const handleClick = (index) => {
-    const newBasket = [...basket];
-    newBasket.push(menus[index]);
-    setBasket(newBasket);
-    setBasketTotalPrice(basketTotalPrice + menus[index].price);
-    toast.success(`Le ${menus[index].name} a été ajouté au panier`, {
-      position: "bottom-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    console.log(menus[index]);
+    const isAlreadyInBasket = basket.find(
+      (item) => item.id === menus[index].id
+    );
+    if (isAlreadyInBasket) {
+      toast.error("Ce menu est déjà dans votre panier !");
+    } else {
+      setBasketTotalPrice(basketTotalPrice + menus[index].price);
+      setBasket([...basket, menus[index]]);
+      toast.success(`Le ${menus[index].name} a été ajouté au panier`, {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
   return (
     <section id="menus">

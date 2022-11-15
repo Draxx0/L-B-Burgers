@@ -1,6 +1,6 @@
+import "./Contact.scss";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import "./Contact.scss";
 
 const Contact = ({ user }) => {
   const [credentials, setCredentials] = useState({});
@@ -15,7 +15,6 @@ const Contact = ({ user }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCredentials({ ...credentials, [name]: value });
-    console.log(credentials);
   };
   return (
     <section id="contact">
@@ -25,7 +24,7 @@ const Contact = ({ user }) => {
           Pour toutes demande de contact merci de passer par le formulaire
           ci-dessous, si votre demande concerne un partenariat veuillez prendre
           contact avec monsieur FORT William à l’adresse mail suivante -
-          william.b&c@gmail.com
+          william.l&b@gmail.com
         </p>
       </div>
 

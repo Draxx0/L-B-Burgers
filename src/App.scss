@@ -151,6 +151,10 @@ button {
     }
 }
 
+.bold {
+    font-weight: bold;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -165,4 +169,8 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+::selection {
+    background: #f5c518;
 }

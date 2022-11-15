@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Shop.scss";
 
 const Shop = ({
@@ -7,9 +8,14 @@ const Shop = ({
   basketTotalPrice,
   setBasketTotalPrice,
 }) => {
-  const handleClick = (index) => {
+  const handleDelete = (index) => {
     setBasketTotalPrice(basketTotalPrice - basket[index].price);
-    basket.splice(index, 1);
+    console.log(basket[index].quantity);
+    basket[index].quantity--;
+    if (basket[index].quantity <= 0) {
+      basket[index].quantity = 1;
+      basket.splice(index, 1);
+    }
     setBasket([...basket]);
   };
 
@@ -40,11 +46,13 @@ const Shop = ({
               <div className="shop-item-text column">
                 <span className="shop-item-name">{item.name}</span>
                 <span className="shop-item-price">{item.price} €</span>
-                <span className="shop-item-price">Quantité(s) {item.quantity}</span>
+                <span className="shop-item-price">
+                  Quantité(s) {item.quantity}
+                </span>
                 <div className="row shop-button-row">
                   <button
                     className="black-button"
-                    onClick={() => handleClick(index)}
+                    onClick={() => handleDelete(index)}
                   >
                     Supprimer
                   </button>
@@ -71,6 +79,8 @@ const Shop = ({
         <span className="shop-total-text">Prix Total</span>
         <span className="shop-total-price">{basketTotalPrice} €</span>
       </div>
+
+      <Link to="/order" className="yellow-button order-btn">Commander</Link>
     </div>
   );
 };
