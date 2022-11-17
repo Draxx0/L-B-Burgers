@@ -32,11 +32,11 @@ const Navbar = ({ user, isAuth, isShopActive, setIsShopActive }) => {
               </li>
 
               <li className="nav-item">
-                <Link to="/services">Service</Link>
+                <Link to="/contact">Contact</Link>
               </li>
 
               <li className="nav-item">
-                <Link to="/contact">Contact</Link>
+                <Link to="/account">Compte</Link>
               </li>
             </ul>
 

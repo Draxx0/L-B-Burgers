@@ -4,6 +4,7 @@ import "./Order.scss";
 
 const Order = ({ basket, basketTotalPrice, setBasketTotalPrice }) => {
   const [code, setCode] = useState("");
+  const [credentials, setCredentials] = useState({});
   const [alreadyUsed, setAlreadyUsed] = useState(false);
 
   const handleSubmit = (e) => {
@@ -59,6 +60,12 @@ const Order = ({ basket, basketTotalPrice, setBasketTotalPrice }) => {
       });
     }
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials({ ...credentials, [name]: value });
+    console.log(credentials);
+  };
   return (
     <div className="order">
       <h2 className="page-title">Votre commande</h2>
@@ -89,10 +96,13 @@ const Order = ({ basket, basketTotalPrice, setBasketTotalPrice }) => {
                 Numéro de carte
               </label>
               <input
-                type="number"
+                type="tel"
+                pattern="[0-9\s]{13,19}"
+                maxLength="19"
                 name="cardNumber"
-                id=""
+                inputMode="numeric"
                 placeholder="0000-0000-0000-0000"
+                onChange={(e) => handleChange(e)}
               />
             </div>
 
@@ -100,14 +110,26 @@ const Order = ({ basket, basketTotalPrice, setBasketTotalPrice }) => {
               <label htmlFor="" className="form-label">
                 Date d'expiration
               </label>
-              <input type="month" name="cardExpi" id="" />
+              <input
+                type="tel"
+                name="cardExpi"
+                pattern="\d*"
+                maxLength="7"
+                onChange={(e) => handleChange(e)}
+              />
             </div>
 
             <div className="form-group">
               <label htmlFor="" className="form-label">
                 Cryptogramme
               </label>
-              <input type="number" name="cardCrypto" id="" placeholder="***" />
+              <input
+                type="tel"
+                name="cardCrypto"
+                placeholder="***"
+                maxLength="3"
+                onChange={(e) => handleChange(e)}
+              />
             </div>
 
             <div className="form-group">
@@ -117,8 +139,8 @@ const Order = ({ basket, basketTotalPrice, setBasketTotalPrice }) => {
               <input
                 type="text"
                 name="cardName"
-                id=""
                 placeholder="Votre nom"
+                onChange={(e) => handleChange(e)}
               />
             </div>
           </form>
@@ -134,8 +156,8 @@ const Order = ({ basket, basketTotalPrice, setBasketTotalPrice }) => {
                 <input
                   type="text"
                   name="deliveryCity"
-                  id=""
                   placeholder="Votre ville"
+                  onChange={(e) => handleChange(e)}
                 />
               </div>
 
@@ -143,7 +165,12 @@ const Order = ({ basket, basketTotalPrice, setBasketTotalPrice }) => {
                 <label htmlFor="" className="form-label">
                   Code postal
                 </label>
-                <input type="number" name="deliveryPostalCode" id="" placeholder="94300" />
+                <input
+                  type="number"
+                  name="deliveryPostalCode"
+                  placeholder="94300"
+                  onChange={(e) => handleChange(e)}
+                />
               </div>
 
               <div className="form-group">
@@ -153,8 +180,8 @@ const Order = ({ basket, basketTotalPrice, setBasketTotalPrice }) => {
                 <input
                   type="text"
                   name="deliveryAddress"
-                  id=""
                   placeholder="44 rue de la paix"
+                  onChange={(e) => handleChange(e)}
                 />
               </div>
 
@@ -164,9 +191,9 @@ const Order = ({ basket, basketTotalPrice, setBasketTotalPrice }) => {
                 </label>
                 <input
                   type="text"
-                  name="cardName"
-                  id=""
+                  name="deliveryAddressFacturation"
                   placeholder="44 rue de la paix"
+                  onChange={(e) => handleChange(e)}
                 />
               </div>
             </form>
