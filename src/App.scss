@@ -61,6 +61,14 @@ button {
     }
 }
 
+input::placeholder {
+    transition: .3s ease-in-out all;
+}
+
+input:focus::placeholder {
+    opacity: 0;
+}
+
 .row {
     display: flex;
     align-items: center;

@@ -80,7 +80,11 @@ const Shop = ({
         <span className="shop-total-price">{basketTotalPrice} €</span>
       </div>
 
-      <Link to="/order" className="yellow-button order-btn">Commander</Link>
+      {basket.length > 0 && (
+        <Link to="/order" className="yellow-button order-btn">
+          Commander
+        </Link>
+      )}
     </div>
   );
 };

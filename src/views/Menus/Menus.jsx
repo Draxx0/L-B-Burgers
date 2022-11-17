@@ -13,7 +13,6 @@ const Menus = ({
   setBasketTotalPrice,
 }) => {
   const handleClick = (index) => {
-    console.log(menus[index]);
     const isAlreadyInBasket = basket.find(
       (item) => item.id === menus[index].id
     );

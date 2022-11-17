@@ -50,29 +50,120 @@
         }
     }
 
+    .order-footer {
+        display: flex;
+        margin-top: 100px;
+        border-top: 3px solid #383636;
+        border-bottom: 3px solid #383636;
+        padding: 40px;
+        width: 100%;
+
+        .left-footer {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .right-footer {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+    }
+
+    .footer-form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            input {
+                width: 50%;
+                padding: 13px 25px;
+                outline: none;
+                border: solid 3px #f5c518;
+                border-radius: 50px;
+                background-color: #383636;
+                color: white;
+                font-weight: bold;
+                font-size: 1rem;
+
+                &::placeholder {
+                    color: rgb(188, 188, 188);
+                }
+            }
+        }
+    }
+
     .order-total-price {
         display: flex;
-        justify-content: center;
         flex-direction: column;
-        align-items: center;
         gap: 10px;
-        margin-top: 100px;
+        margin-top: 50px;
+        padding: 0px 40px;
 
         .order-total-price-title {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 600;
         }
 
         .form-coupon {
             display: flex;
             flex-direction: column;
+            border-radius: 20px;
+            gap: 25px;
 
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
 
+                input {
+                    outline: none;
+                    border-radius: 50px;
+                    border: 3px solid #f5c518;
+                    padding: 10px 20px;
+                    width: 25%;
+                    background-color: #383636;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 1rem;
+
+                    &::placeholder {
+                        transition: .3s ease-in-out all;
+                        color: rgb(188, 188, 188);
+                    }
+                }
+
+            }
+
+            .submit-coupon {
+                cursor: pointer;
+            }
         }
+
+        .order-button {
+            display: flex;
+            margin: 50px auto auto auto;
+        }
+
     }
 
     .order-button {
         display: flex;
-        margin: 50px auto auto auto;
+        margin: 100px auto auto auto;
+    }
+
+    .payment-title,
+    .order-delivery-title {
+        font-size: 2rem;
+        margin-bottom: 50px;
     }
 }

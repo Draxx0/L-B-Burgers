@@ -12,7 +12,7 @@ const RoutesComponent = ({user, setIsAuth, burgers, menus, setUser, isShopActive
       <Route path="/home" element={<Home isShopActive={isShopActive} setIsShopActive={setIsShopActive} burgers={burgers} user={user}/>} />
       <Route path="/menus" element={<Menus menus={menus} basket={basket} setBasket={setBasket} basketTotalPrice={basketTotalPrice} setBasketTotalPrice={setBasketTotalPrice}/>} />
       <Route path="/contact" element={<Contact user={user}/>} />
-      <Route path="/order" element={<Order basketTotalPrice={basketTotalPrice} basket={basket}/>} />
+      <Route path="/order" element={<Order basketTotalPrice={basketTotalPrice} setBasketTotalPrice={setBasketTotalPrice} basket={basket}/>} />
     </Routes>
   );
 };
