@@ -2,62 +2,108 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "./Order.scss";
 
-const Order = ({ basket, basketTotalPrice, setBasketTotalPrice }) => {
-  const [code, setCode] = useState("");
+const Order = ({
+  basket,
+  basketTotalPrice,
+  setBasketTotalPrice,
+  couponCode,
+}) => {
+  const [coupon, setCoupon] = useState("");
   const [credentials, setCredentials] = useState({});
-  const [alreadyUsed, setAlreadyUsed] = useState(false);
+
+  const promoApply = () => {
+    toast.success("Code promo appliqué !", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const promoError = () => {
+    toast.error("Veuillez entrer un code promo !", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const promoInvalid = () => {
+    toast.error("Code promo invalide !", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const promoAlreadyUsed = () => {
+    toast.error("Code promo déjà utilisé", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (code === "L&B-536489" && !alreadyUsed) {
+    if (
+      coupon === couponCode[0].code &&
+      couponCode[0].isAlreadyUsed === false
+    ) {
       setBasketTotalPrice(basketTotalPrice * 0.85);
-      setAlreadyUsed(true);
-      toast.success("Code promo appliqué !", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      couponCode[0].isAlreadyUsed = true;
+      promoApply();
+      return;
+    } else if (
+      coupon === couponCode[1]?.code &&
+      couponCode[1].isAlreadyUsed === false
+    ) {
+      setBasketTotalPrice(basketTotalPrice * 0.85);
+      couponCode[1].isAlreadyUsed = true;
+      promoApply();
+      return;
     }
 
-    if (code === "") {
-      toast.error("Veuillez entrer un code promo", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+    if (coupon === "") {
+      promoError();
+      return;
     }
 
-    if (code !== "L&B-536489" && code !== "") {
-      toast.error("Code promo invalide !", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+    if (
+      coupon !== couponCode[0].code &&
+      coupon !== couponCode[1]?.code &&
+      coupon !== ""
+    ) {
+      promoInvalid();
+      return;
     }
 
-    if (alreadyUsed && code === "L&B-536489") {
-      toast.error("Code promo déjà utilisé", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+    if (couponCode[0].isAlreadyUsed === true && coupon === couponCode[0].code) {
+      promoAlreadyUsed();
+      return;
+    }
+
+    if (
+      couponCode[1]?.isAlreadyUsed === true &&
+      coupon === couponCode[1]?.code
+    ) {
+      promoAlreadyUsed();
+      return;
     }
   };
 
@@ -216,7 +262,7 @@ const Order = ({ basket, basketTotalPrice, setBasketTotalPrice }) => {
               type="text"
               placeholder="Code promo"
               className="input-coupon"
-              onChange={(e) => setCode(e.target.value)}
+              onChange={(e) => setCoupon(e.target.value)}
             />
           </div>
           <input type="submit" className="submit-coupon yellow-button" />

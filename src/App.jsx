@@ -15,6 +15,12 @@ function App() {
   const [basket, setBasket] = useState([]);
   const [basketTotalPrice, setBasketTotalPrice] = useState(0);
   const [isAuth, setIsAuth] = useState(false);
+  const [couponCode, setCouponCode] = useState([
+    {
+      code: "L&B-536489",
+      isAlreadyUsed: false,
+    },
+  ]);
 
   const fetchBurgers = () => {
     fetch("./data/burgers.json")
@@ -41,6 +47,8 @@ function App() {
           isShopActive={isShopActive}
           setIsShopActive={setIsShopActive}
           isAuth={isAuth}
+          setCouponCode={setCouponCode}
+          couponCode={couponCode}
         />
         <Shop
           isShopActive={isShopActive}
@@ -62,8 +70,9 @@ function App() {
           basketTotalPrice={basketTotalPrice}
           setBasketTotalPrice={setBasketTotalPrice}
           setIsAuth={setIsAuth}
+          couponCode={couponCode}
         />
-        <Footer isAuth={isAuth} setIsAuth={setIsAuth}/>
+        <Footer isAuth={isAuth} setIsAuth={setIsAuth} />
       </BrowserRouter>
     </div>
   );

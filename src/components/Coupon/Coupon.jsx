@@ -6,6 +6,7 @@ const CouponCode = ({ user, isHomeLoaded, setIsHomeLoaded }) => {
   const handleClick = () => {
     navigator.clipboard.writeText("L&B-536489");
     toast.success("Code copié avec succès !");
+    setIsHomeLoaded(!isHomeLoaded);
   };
   return (
     <div className={isHomeLoaded ? "coupon-code active-coupon" : "coupon-code"}>

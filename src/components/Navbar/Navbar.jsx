@@ -3,19 +3,43 @@ import logo from "../../assets/img/logo.png";
 import shop from "../../assets/img/bag.png";
 import closeShop from "../../assets/img/close.png";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { useState } from "react";
 
-const Navbar = ({ user, isAuth, isShopActive, setIsShopActive }) => {
+const Navbar = ({
+  user,
+  isAuth,
+  isShopActive,
+  setIsShopActive,
+  setCouponCode,
+  couponCode,
+}) => {
   const { firstname, lastname } = user;
+  const [isAlreadyClicked, setIsAlreadyClicked] = useState(false);
 
   const handleClick = () => {
     setIsShopActive(!isShopActive);
+  };
+
+  const handleClickLogo = () => {
+    if (!isAlreadyClicked) {
+      setCouponCode([
+        ...couponCode,
+        {
+          code: "L&B-EASTEREGG",
+          isAlreadyUsed: false,
+        },
+      ]);
+      toast.success("Tiens ?! Un code promo était caché dans le logo ! 🤫");
+      setIsAlreadyClicked(true);
+    }
   };
   return (
     <>
       {isAuth ? (
         <nav className="nav">
           <div className="nav-wrapper">
-            <img src={logo} alt="" />
+            <img src={logo} alt="" onClick={() => handleClickLogo()} />
             <h5 className="welcome-user">
               🖐{" "}
               <span className="colored">
@@ -48,6 +72,7 @@ const Navbar = ({ user, isAuth, isShopActive, setIsShopActive }) => {
               />
             </div>
           </div>
+          <ToastContainer />
         </nav>
       ) : null}
     </>

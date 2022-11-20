@@ -3,6 +3,7 @@ import "./Shop.scss";
 
 const Shop = ({
   isShopActive,
+  setIsShopActive,
   basket,
   setBasket,
   basketTotalPrice,
@@ -81,7 +82,11 @@ const Shop = ({
       </div>
 
       {basket.length > 0 && (
-        <Link to="/order" className="yellow-button order-btn">
+        <Link
+          to="/order"
+          className="yellow-button order-btn"
+          onClick={() => setIsShopActive(false)}
+        >
           Commander
         </Link>
       )}

@@ -103,6 +103,8 @@ input:focus::placeholder {
     color: white;
     font-weight: bold;
     width: fit-content;
+    transition: .3s ease-in-out all;
+    cursor: pointer;
 
     &:hover {
         opacity: 70%;

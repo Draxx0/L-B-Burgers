@@ -17,7 +17,6 @@ const Auth = ({ setUser, setIsAuth }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCredentials({ ...credentials, [name]: value });
-    localStorage.setItem("credentials", JSON.stringify(credentials));
   };
   return (
     <div className="auth">
@@ -38,6 +37,17 @@ const Auth = ({ setUser, setIsAuth }) => {
           <input
             type="text"
             name="lastname"
+            className="input-auth"
+            required
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+
+        <div className="form-group">
+          <label className="input-label">Votre email</label>
+          <input
+            type="text"
+            name="email"
             className="input-auth"
             required
             onChange={(e) => handleChange(e)}

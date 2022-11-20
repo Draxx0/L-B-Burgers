@@ -1,4 +1,45 @@
 #account {
     width: 80%;
     margin: 100px auto auto auto;
+
+    .row {
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .account-form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        width: 50%;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            input {
+                outline: none;
+                border-radius: 50px;
+                border: 3px solid #f5c518;
+                padding: 10px 20px;
+                width: 75%;
+                background-color: #383636;
+                color: white;
+                font-weight: bold;
+                font-size: 1rem;
+
+                &::placeholder {
+                    transition: .3s ease-in-out all;
+                    color: rgb(188, 188, 188);
+                }
+            }
+        }
+    }
+
+    .coupon-code-container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
 }
