@@ -32,7 +32,7 @@ const Shop = ({
   };
 
   return (
-    <div className={isShopActive ? "active shop" : "not-active shop"}>
+    <div className={isShopActive ? "active-shop shop" : "not-active shop"}>
       <h2 className="shop-title">Votre panier</h2>
 
       {basket.length === 0 ? (

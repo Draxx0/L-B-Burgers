@@ -1,7 +1,9 @@
-import { useState } from "react";
+import "./Order.scss";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import "./Order.scss";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Order = ({
   basket,
@@ -11,6 +13,7 @@ const Order = ({
 }) => {
   const [coupon, setCoupon] = useState("");
   const [credentials, setCredentials] = useState({});
+  const orderRef = useRef(null);
 
   const promoApply = () => {
     toast.success("Code promo appliqué !", {
@@ -112,182 +115,199 @@ const Order = ({
     const { name, value } = e.target;
     setCredentials({ ...credentials, [name]: value });
   };
+
+  useEffect(() => {
+    const element = orderRef.current;
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from(element, {
+      scrollTrigger: {
+        trigger: element,
+        start: "top 90%",
+      },
+      duration: 1,
+      opacity: 0,
+      y: 70,
+    });
+  }, []);
   return (
-    <div className="order">
-      <h2 className="page-title">Votre commande</h2>
+    <>
+      <section className="order" ref={orderRef}>
+        <h2 className="page-title">Votre commande</h2>
 
-      {basket.length === 0 ? (
-        <div className="empty-basket">
-          <p className="empty-text">Votre panier est vide</p>
-          <Link to="/menus" className="yellow-button">Parcourir les menus</Link>
-        </div>
-      ) : (
-        <>
-          <div className="order-item-container">
-            {basket.map((item) => (
-              <div className="order-item" key={item.id}>
-                <div className="order-image-wrapper">
-                  <img src={item.image} alt="" className="order-image" />
-                </div>
-                <div className="order-item-text column">
-                  <span className="order-item-name">{item.name}</span>
-                  <span className="order-item-price">
-                    Prix à l'unité : {item.price} €
-                  </span>
-                  <span className="order-item-quantity">
-                    Quantité(s) : {item.quantity}
-                  </span>
-                </div>
-              </div>
-            ))}
+        {basket.length === 0 ? (
+          <div className="empty-basket">
+            <p className="empty-text">Votre panier est vide</p>
+            <Link to="/menus" className="yellow-button">
+              Parcourir les menus
+            </Link>
           </div>
-
-          <div className="order-footer">
-            <div className="left-footer">
-              <h3 className="payment-title">Paiement</h3>
-              <form action="" className="footer-form">
-                <div className="form-group">
-                  <label htmlFor="" className="form-label">
-                    Numéro de carte
-                  </label>
-                  <input
-                    type="tel"
-                    pattern="[0-9\s]{13,19}"
-                    maxLength="19"
-                    name="cardNumber"
-                    inputMode="numeric"
-                    placeholder="0000-0000-0000-0000"
-                    onChange={(e) => handleChange(e)}
-                  />
+        ) : (
+          <>
+            <div className="order-item-container">
+              {basket.map((item) => (
+                <div className="order-item" key={item.id}>
+                  <div className="order-image-wrapper">
+                    <img src={item.image} alt="" className="order-image" />
+                  </div>
+                  <div className="order-item-text column">
+                    <span className="order-item-name">{item.name}</span>
+                    <span className="order-item-price">
+                      Prix à l'unité : {item.price} €
+                    </span>
+                    <span className="order-item-quantity">
+                      Quantité(s) : {item.quantity}
+                    </span>
+                  </div>
                 </div>
-
-                <div className="form-group">
-                  <label htmlFor="" className="form-label">
-                    Date d'expiration
-                  </label>
-                  <input
-                    type="tel"
-                    name="cardExpi"
-                    pattern="\d*"
-                    maxLength="7"
-                    onChange={(e) => handleChange(e)}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="" className="form-label">
-                    Cryptogramme
-                  </label>
-                  <input
-                    type="tel"
-                    name="cardCrypto"
-                    placeholder="***"
-                    maxLength="3"
-                    onChange={(e) => handleChange(e)}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="" className="form-label">
-                    Nom
-                  </label>
-                  <input
-                    type="text"
-                    name="cardName"
-                    placeholder="Votre nom"
-                    onChange={(e) => handleChange(e)}
-                  />
-                </div>
-              </form>
+              ))}
             </div>
-            <div className="right-footer">
-              <div className="order-delivery">
-                <h3 className="order-delivery-title">Livraison</h3>
+
+            <div className="order-footer">
+              <div className="left-footer">
+                <h3 className="payment-title">Paiement</h3>
                 <form action="" className="footer-form">
                   <div className="form-group">
                     <label htmlFor="" className="form-label">
-                      Ville
+                      Numéro de carte
                     </label>
                     <input
-                      type="text"
-                      name="deliveryCity"
-                      placeholder="Votre ville"
+                      type="tel"
+                      pattern="[0-9\s]{13,19}"
+                      maxLength="19"
+                      name="cardNumber"
+                      inputMode="numeric"
+                      placeholder="0000-0000-0000-0000"
                       onChange={(e) => handleChange(e)}
                     />
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="" className="form-label">
-                      Code postal
+                      Date d'expiration
                     </label>
                     <input
-                      type="number"
-                      name="deliveryPostalCode"
-                      placeholder="94300"
+                      type="tel"
+                      name="cardExpi"
+                      pattern="\d*"
+                      maxLength="7"
                       onChange={(e) => handleChange(e)}
                     />
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="" className="form-label">
-                      Addresse de livraison
+                      Cryptogramme
                     </label>
                     <input
-                      type="text"
-                      name="deliveryAddress"
-                      placeholder="44 rue de la paix"
+                      type="tel"
+                      name="cardCrypto"
+                      placeholder="***"
+                      maxLength="3"
                       onChange={(e) => handleChange(e)}
                     />
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="" className="form-label">
-                      Addresse de facturation
+                      Nom
                     </label>
                     <input
                       type="text"
-                      name="deliveryAddressFacturation"
-                      placeholder="44 rue de la paix"
+                      name="cardName"
+                      placeholder="Votre nom"
                       onChange={(e) => handleChange(e)}
                     />
                   </div>
                 </form>
               </div>
-            </div>
-          </div>
+              <div className="right-footer">
+                <div className="order-delivery">
+                  <h3 className="order-delivery-title">Livraison</h3>
+                  <form action="" className="footer-form">
+                    <div className="form-group">
+                      <label htmlFor="" className="form-label">
+                        Ville
+                      </label>
+                      <input
+                        type="text"
+                        name="deliveryCity"
+                        placeholder="Votre ville"
+                        onChange={(e) => handleChange(e)}
+                      />
+                    </div>
 
-          <div className="order-total-price">
-            <span className="order-total-price-title">
-              Total à payer {basketTotalPrice} €
-            </span>
-            <form
-              action=""
-              className="form-coupon"
-              onSubmit={(e) => handleSubmit(e)}
-            >
-              <div className="form-group">
-                <label htmlFor="">Vous posséder un code promo ?</label>
-                <input
-                  type="text"
-                  placeholder="Code promo"
-                  className="input-coupon"
-                  onChange={(e) => setCoupon(e.target.value)}
-                />
+                    <div className="form-group">
+                      <label htmlFor="" className="form-label">
+                        Code postal
+                      </label>
+                      <input
+                        type="number"
+                        name="deliveryPostalCode"
+                        placeholder="94300"
+                        onChange={(e) => handleChange(e)}
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="" className="form-label">
+                        Addresse de livraison
+                      </label>
+                      <input
+                        type="text"
+                        name="deliveryAddress"
+                        placeholder="44 rue de la paix"
+                        onChange={(e) => handleChange(e)}
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="" className="form-label">
+                        Addresse de facturation
+                      </label>
+                      <input
+                        type="text"
+                        name="deliveryAddressFacturation"
+                        placeholder="44 rue de la paix"
+                        onChange={(e) => handleChange(e)}
+                      />
+                    </div>
+                  </form>
+                </div>
               </div>
-              <input type="submit" className="submit-coupon yellow-button" />
-            </form>
-          </div>
+            </div>
 
-          <div className="order-button-container">
-            <button className="order-button yellow-button">
-              Procéder au paiment
-            </button>
-          </div>
+            <div className="order-total-price">
+              <span className="order-total-price-title">
+                Total à payer {basketTotalPrice} €
+              </span>
+              <form
+                action=""
+                className="form-coupon"
+                onSubmit={(e) => handleSubmit(e)}
+              >
+                <div className="form-group">
+                  <label htmlFor="">Vous posséder un code promo ?</label>
+                  <input
+                    type="text"
+                    placeholder="Code promo"
+                    className="input-coupon"
+                    onChange={(e) => setCoupon(e.target.value)}
+                  />
+                </div>
+                <input type="submit" className="submit-coupon yellow-button" />
+              </form>
+            </div>
 
-          <ToastContainer />
-        </>
-      )}
-    </div>
+            <div className="order-button-container">
+              <button className="order-button yellow-button">
+                Procéder au paiment
+              </button>
+            </div>
+          </>
+        )}
+      </section>
+      <ToastContainer />
+    </>
   );
 };
 

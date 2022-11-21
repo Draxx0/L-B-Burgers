@@ -3,14 +3,18 @@ import Star from "../../assets/img/star.png";
 import Rank from "../../assets/img/rank.png";
 import "./Home.scss";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Modal from "../../components/Modal/Modal";
 import Coupon from "../../components/Coupon/Coupon";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Home = ({ burgers, user, couponCode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedBurger, setSelectedBurger] = useState(null);
   const [isHomeLoaded, setIsHomeLoaded] = useState(false);
+  const creationsRef = useRef(null);
+
   const handleClick = (burger) => {
     setSelectedBurger(burger);
     setIsOpen(!isOpen);
@@ -20,6 +24,17 @@ const Home = ({ burgers, user, couponCode }) => {
     setTimeout(() => {
       setIsHomeLoaded(true);
     }, 1000);
+    const element = creationsRef.current;
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from(element, {
+      scrollTrigger: {
+        trigger: element,
+        start: "top 90%",
+      },
+      duration: 1,
+      opacity: 0,
+      y: 40,
+    });
   }, []);
 
   return (
@@ -49,7 +64,7 @@ const Home = ({ burgers, user, couponCode }) => {
         </div>
       </div>
 
-      <div className="our-creations">
+      <div className="our-creations" ref={creationsRef}>
         <h2 className="our-creations-title">Découvrer nos créations</h2>
 
         <div className="filter row">

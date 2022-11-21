@@ -4,7 +4,26 @@ import Linkedin from "../../assets/img/linkedin.png";
 import Github from "../../assets/img/github.png";
 import "./Footer.scss";
 
-const Footer = ({ isAuth, setIsAuth }) => {
+const Footer = ({
+  isAuth,
+  setIsAuth,
+  couponCode,
+  setIsLogoAlreadyClicked,
+  setBasket,
+  setIsShopActive,
+  setBasketTotalPrice,
+}) => {
+  const handleDisconnect = () => {
+    setIsAuth(false);
+    couponCode.forEach((code) => {
+      code.isAlreadyUsed = false;
+    });
+    couponCode.splice(1, 1);
+    setIsLogoAlreadyClicked(false);
+    setBasket([]);
+    setIsShopActive(false);
+    setBasketTotalPrice(0);
+  };
   return (
     <>
       {isAuth ? (
@@ -34,7 +53,7 @@ const Footer = ({ isAuth, setIsAuth }) => {
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" onClick={() => setIsAuth(false)}>
+                <Link to="/" onClick={() => handleDisconnect()}>
                   Déconnexion
                 </Link>
               </li>

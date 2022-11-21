@@ -4,7 +4,6 @@ import shop from "../../assets/img/bag.png";
 import closeShop from "../../assets/img/close.png";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import { useState } from "react";
 
 const Navbar = ({
   user,
@@ -13,16 +12,17 @@ const Navbar = ({
   setIsShopActive,
   setCouponCode,
   couponCode,
+  isLogoAlreadyClicked,
+  setIsLogoAlreadyClicked,
 }) => {
   const { firstname, lastname } = user;
-  const [isAlreadyClicked, setIsAlreadyClicked] = useState(false);
 
   const handleClick = () => {
     setIsShopActive(!isShopActive);
   };
 
   const handleClickLogo = () => {
-    if (!isAlreadyClicked) {
+    if (!isLogoAlreadyClicked) {
       setCouponCode([
         ...couponCode,
         {
@@ -33,7 +33,7 @@ const Navbar = ({
       toast.success("Tiens ?! Un code promo était caché dans le logo ! 🤫", {
         position: "bottom-right",
       });
-      setIsAlreadyClicked(true);
+      setIsLogoAlreadyClicked(true);
     }
   };
   return (

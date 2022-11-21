@@ -1,11 +1,12 @@
 import { BrowserRouter } from "react-router-dom";
 import RoutesComponent from "./routes/RoutesComponent";
 import "./App.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Shop from "./components/Shop/Shop";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer/Footer";
+import { gsap } from "gsap";
 
 function App() {
   const [user, setUser] = useState([]);
@@ -15,12 +16,16 @@ function App() {
   const [basket, setBasket] = useState([]);
   const [basketTotalPrice, setBasketTotalPrice] = useState(0);
   const [isAuth, setIsAuth] = useState(false);
+  const [isLogoAlreadyClicked, setIsLogoAlreadyClicked] = useState(false);
   const [couponCode, setCouponCode] = useState([
     {
       code: "L&B-536489",
       isAlreadyUsed: false,
     },
   ]);
+  const [appReveal, setAppReveal] = useState(false);
+
+  const appRef = useRef(null);
 
   const fetchBurgers = () => {
     fetch("./data/burgers.json")
@@ -37,10 +42,12 @@ function App() {
   useEffect(() => {
     fetchBurgers();
     fetchMenus();
-  }, []);
+    setAppReveal(true);
+    appReveal && gsap.from(appRef.current, { duration: 1, opacity: 0 });
+  }, [appReveal]);
 
   return (
-    <div className="App">
+    <div className="App" ref={appRef}>
       <BrowserRouter>
         <Navbar
           user={user}
@@ -49,6 +56,8 @@ function App() {
           isAuth={isAuth}
           setCouponCode={setCouponCode}
           couponCode={couponCode}
+          isLogoAlreadyClicked={isLogoAlreadyClicked}
+          setIsLogoAlreadyClicked={setIsLogoAlreadyClicked}
         />
         <Shop
           isShopActive={isShopActive}
@@ -72,7 +81,15 @@ function App() {
           setIsAuth={setIsAuth}
           couponCode={couponCode}
         />
-        <Footer isAuth={isAuth} setIsAuth={setIsAuth} />
+        <Footer
+          isAuth={isAuth}
+          setIsAuth={setIsAuth}
+          couponCode={couponCode}
+          setIsLogoAlreadyClicked={setIsLogoAlreadyClicked}
+          setBasket={setBasket}
+          setIsShopActive={setIsShopActive}
+          setBasketTotalPrice={setBasketTotalPrice}
+        />
       </BrowserRouter>
     </div>
   );

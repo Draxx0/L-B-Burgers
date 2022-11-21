@@ -4,6 +4,7 @@
 
     .slogan-container {
         gap: 50px;
+        animation: slideInFromLeft 1s ease-in-out forwards;
 
         .slogan {
             font-size: 2.5rem;
@@ -13,11 +14,17 @@
             font-size: 1.5rem;
         }
     }
+
+    .header-img {
+        opacity: 0;
+        animation: slideInFromRight 1s ease-in-out forwards;
+        animation-delay: 0.4s;
+    }
 }
 
 .our-creations {
     width: 80%;
-    margin: 100px auto auto auto;
+    margin: 150px auto auto auto;
 
     .our-creations-title {
         font-size: 2.5rem;
@@ -119,4 +126,28 @@
         }
     }
 
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-5%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(5%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

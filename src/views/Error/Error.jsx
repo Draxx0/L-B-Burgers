@@ -5,19 +5,21 @@ import { useNavigate } from "react-router-dom";
 const Error = () => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate(-1);
-  };
-
   return (
     <div className="error">
       <img src={Logo} alt="" />
       <div className="container">
         <h1>Erreur 404</h1>
         <p>La page que vous recherchez n'existe pas</p>
-        <button className="yellow-button" onClick={() => handleClick()}>
-          Revenir à la dernière page
-        </button>
+        <div className="nav-column">
+          <button className="yellow-button" onClick={() => navigate(-1)}>
+            Revenir à la dernière page
+          </button>
+
+          <button className="yellow-button" onClick={() => navigate("/")}>
+            Revenir à la page de connexion
+          </button>
+        </div>
       </div>
     </div>
   );
