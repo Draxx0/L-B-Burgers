@@ -11,7 +11,7 @@ const RoutesComponent = ({user, setIsAuth, burgers, menus, setUser, isShopActive
   return (
     <Routes>
       <Route path="/" element={<Auth setUser={setUser} setIsAuth={setIsAuth}/>} />
-      <Route path="/home" element={<Home isShopActive={isShopActive} setIsShopActive={setIsShopActive} burgers={burgers} user={user}/>} />
+      <Route path="/home" element={<Home isShopActive={isShopActive} setIsShopActive={setIsShopActive} burgers={burgers} user={user} couponCode={couponCode} />} />
       <Route path="/menus" element={<Menus menus={menus} basket={basket} setBasket={setBasket} basketTotalPrice={basketTotalPrice} setBasketTotalPrice={setBasketTotalPrice}/>} />
       <Route path="/contact" element={<Contact user={user} />} />
       <Route path="/account" element={<Account user={user} setUser={setUser} couponCode={couponCode} />} />

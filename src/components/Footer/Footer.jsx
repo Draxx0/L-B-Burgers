@@ -14,16 +14,24 @@ const Footer = ({ isAuth, setIsAuth }) => {
 
             <ul className="footer-list">
               <li className="footer-list-item">
-                <Link to="/home">Accueil</Link>
+                <Link to="/home" onClick={() => window.scrollTo(0, 0)}>
+                  Accueil
+                </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/menus">Menus</Link>
+                <Link to="/menus" onClick={() => window.scrollTo(0, 0)}>
+                  Menus
+                </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/services">Services</Link>
+                <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
+                  Contact
+                </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/contact">Contact</Link>
+                <Link to="/order" onClick={() => window.scrollTo(0, 0)}>
+                  Commande
+                </Link>
               </li>
               <li className="footer-list-item">
                 <Link to="/" onClick={() => setIsAuth(false)}>

@@ -20,7 +20,7 @@
     "name": "Menu Sea White",
     "price": 15,
     "quantity": 1,
-    "image": "../img/blackfirstmenu.png",
+    "image": "../img/seawhitemenus.png",
     "content": [
       {
         "contentId": 2,
@@ -36,7 +36,7 @@
     "name": "Menu Chicka-Chicka",
     "price": 13,
     "quantity": 1,
-    "image": "../img/blackfirstmenu.png",
+    "image": "../img/chickachickamenus.png",
     "content": [
       {
         "contentId": 2,
@@ -52,7 +52,7 @@
     "name": "Menu Ve'Gan",
     "price": 15,
     "quantity": 1,
-    "image": "../img/blackfirstmenu.png",
+    "image": "../img/ve-ganmenus.png",
     "content": [
       {
         "contentId": 2,

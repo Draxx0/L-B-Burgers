@@ -18,14 +18,18 @@ const Account = ({ user, setUser, couponCode }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setUser({ ...user, ...credentials });
-    toast.success("Vos informations ont bien été modifiées");
+    toast.success("Vos informations ont bien été modifiées", {
+      position: "bottom-right",
+    });
   };
 
   const handleCopyCode = (index) => {
     navigator.clipboard.writeText(couponCode[index].code);
-    toast.success(`Le code ${couponCode[index].code} copié avec succès !`);
+    toast.success(`Le code ${couponCode[index].code} copié avec succès !`, {
+      position: "bottom-right",
+    });
   };
-  
+
   return (
     <section id="account">
       <h1 className="page-title">L&B - Mon compte</h1>
@@ -80,15 +84,23 @@ const Account = ({ user, setUser, couponCode }) => {
 
         <div className="coupon-code-container">
           <h2 className="coupon-code-title">Mes codes promos</h2>
-          {couponCode.map((coupon, index) => (
-            <button
-              className="coupon-code-text yellow-button"
-              onClick={() => handleCopyCode(index)}
-              key={coupon}
-            >
-              {coupon.code}
-            </button>
-          ))}
+          {couponCode.map((coupon, index) =>
+            coupon.isAlreadyUsed === false ? (
+              <button
+                className="coupon-code-text yellow-button"
+                onClick={() => handleCopyCode(index)}
+                key={coupon}
+              >
+                {coupon.code}
+              </button>
+            ) : null
+          )}
+
+          {couponCode.every((coupon) => coupon.isAlreadyUsed === true) && (
+            <p className="coupon-nocode-text">
+              Vous n'avez pas de code promo disponible
+            </p>
+          )}
         </div>
       </div>
 

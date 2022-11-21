@@ -30,7 +30,9 @@ const Navbar = ({
           isAlreadyUsed: false,
         },
       ]);
-      toast.success("Tiens ?! Un code promo était caché dans le logo ! 🤫");
+      toast.success("Tiens ?! Un code promo était caché dans le logo ! 🤫", {
+        position: "bottom-right",
+      });
       setIsAlreadyClicked(true);
     }
   };

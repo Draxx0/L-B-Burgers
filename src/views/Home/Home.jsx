@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Modal from "../../components/Modal/Modal";
 import Coupon from "../../components/Coupon/Coupon";
 
-const Home = ({ burgers, user }) => {
+const Home = ({ burgers, user, couponCode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedBurger, setSelectedBurger] = useState(null);
   const [isHomeLoaded, setIsHomeLoaded] = useState(false);
@@ -28,6 +28,7 @@ const Home = ({ burgers, user }) => {
         user={user}
         isHomeLoaded={isHomeLoaded}
         setIsHomeLoaded={setIsHomeLoaded}
+        couponCode={couponCode}
       />
       <div className="home-header">
         <div className="row">

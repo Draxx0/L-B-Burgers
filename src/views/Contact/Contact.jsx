@@ -8,7 +8,9 @@ const Contact = ({ user }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toast.success("Votre message a bien été envoyé !");
+    toast.success("Votre message a bien été envoyé !", {
+      position: "bottom-right",
+    });
     setCredentials({});
   };
 

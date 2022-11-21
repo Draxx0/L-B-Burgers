@@ -5,7 +5,7 @@ import Bread from "../../assets/img/bread-icon.png";
 import Cheese from "../../assets/img/cheese-icon.png";
 import Sauce from "../../assets/img/sauce-icon.png";
 
-const Modal = ({ burger, isOpen, setIsOpen }) => {
+const Modal = ({ burger, isOpen, setIsOpen, couponCode }) => {
   return (
     <div className={isOpen ? "modal active" : "modal"} key={burger?.id}>
       <div className="modal-content">
