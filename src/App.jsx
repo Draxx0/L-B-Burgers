@@ -24,6 +24,7 @@ function App() {
     },
   ]);
   const [appReveal, setAppReveal] = useState(false);
+  const [orderRecap, setOrderRecap] = useState([]);
 
   const appRef = useRef(null);
 
@@ -80,6 +81,8 @@ function App() {
           setBasketTotalPrice={setBasketTotalPrice}
           setIsAuth={setIsAuth}
           couponCode={couponCode}
+          orderRecap={orderRecap}
+          setOrderRecap={setOrderRecap}
         />
         <Footer
           isAuth={isAuth}

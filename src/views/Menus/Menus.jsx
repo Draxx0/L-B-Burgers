@@ -56,18 +56,6 @@ const Menus = ({
       <section id="menus" ref={menusRef}>
         <h1 className="page-title">L&B - Menus</h1>
 
-        <div className="filter row">
-          <select name="select" id="" className="select-filter">
-            <option value="filtrer">Filtrer</option>
-            <option value="Boeuf">Boeuf</option>
-            <option value="Poulet">Poulet</option>
-            <option value="Poisson">Poisson</option>
-            <option value="Vegan">Vegan</option>
-          </select>
-
-          <span className="reset-filter">Réinitialiser</span>
-        </div>
-
         <div className="menus-items-container">
           {menus.map((menu, index) => (
             <div className="menu-item" key={menu.id}>

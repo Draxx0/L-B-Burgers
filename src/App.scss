@@ -116,52 +116,22 @@ input:focus::placeholder {
 }
 
 .page-title {
+    position: relative;
     font-size: 2.5rem;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
-}
+    width: fit-content;
 
-.filter {
-    gap: 50px;
-    margin-top: 50px;
-
-    .select-filter {
-        appearance: none;
-        cursor: pointer;
-        border: solid 3px #f5c518;
-        background-color: #383636;
-        color: white;
-        padding: 13px 40px;
-        border-radius: 50px;
-        font-weight: bold;
-        font-family: 'Montserrat', sans-serif;
-        outline: none;
-        transition: .3s ease-in-out all;
-        font-size: 1.2rem;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-
-        option {
-            font-weight: bold;
-            text-transform: uppercase;
-
-            &:checked {
-                background-color: #f5c518;
-            }
-        }
-    }
-
-    .reset-filter {
-        cursor: pointer;
-        font-size: 1.3rem;
-        font-weight: bold;
-        transition: .3s ease-in-out all;
-
-        &:hover {
-            transform: scale(1.05);
-        }
+    &::before{
+        content: '';
+        display: block;
+        width: 75%;
+        height: 5px;
+        background-color: #f5c518;
+        position: absolute;
+        left: 0%;
+        bottom: -5px;
+        border-radius: 20px;
     }
 }
 

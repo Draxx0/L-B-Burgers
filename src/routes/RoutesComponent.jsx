@@ -5,9 +5,10 @@ import Contact from "../views/Contact/Contact";
 import Home from "../views/Home/Home";
 import Menus from "../views/Menus/Menus";
 import Order from "../views/Order/Order";
+import OrderRecap from "../views/OrderRecap/OrderRecap";
 import Error from "../views/Error/Error";
 
-const RoutesComponent = ({user, setIsAuth, burgers, menus, setUser, isShopActive, setIsShopActive, basket, setBasket, basketTotalPrice, setBasketTotalPrice, couponCode}) => {
+const RoutesComponent = ({user, setIsAuth, burgers, menus, setUser, isShopActive, setIsShopActive, basket, setBasket, basketTotalPrice, setBasketTotalPrice, couponCode, orderRecap, setOrderRecap}) => {
   return (
     <Routes>
       <Route path="/" element={<Auth setUser={setUser} setIsAuth={setIsAuth}/>} />
@@ -15,7 +16,8 @@ const RoutesComponent = ({user, setIsAuth, burgers, menus, setUser, isShopActive
       <Route path="/menus" element={<Menus menus={menus} basket={basket} setBasket={setBasket} basketTotalPrice={basketTotalPrice} setBasketTotalPrice={setBasketTotalPrice}/>} />
       <Route path="/contact" element={<Contact user={user} />} />
       <Route path="/account" element={<Account user={user} setUser={setUser} couponCode={couponCode} />} />
-      <Route path="/order" element={<Order basketTotalPrice={basketTotalPrice} setBasketTotalPrice={setBasketTotalPrice} basket={basket} couponCode={couponCode} />} />
+      <Route path="/order" element={<Order basketTotalPrice={basketTotalPrice} setBasketTotalPrice={setBasketTotalPrice} basket={basket} couponCode={couponCode} setOrderRecap={setOrderRecap} orderRecap={orderRecap} />} />
+      <Route path="/order-recap" element={<OrderRecap basketTotalPrice={basketTotalPrice} basket={basket} orderRecap={orderRecap} />} />
       <Route path="*" element={<Error />} />
     </Routes>
   );

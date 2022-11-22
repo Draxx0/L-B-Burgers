@@ -1,6 +1,6 @@
 import "./Order.scss";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,10 +10,13 @@ const Order = ({
   basketTotalPrice,
   setBasketTotalPrice,
   couponCode,
+  setOrderRecap,
+  orderRecap,
 }) => {
   const [coupon, setCoupon] = useState("");
   const [credentials, setCredentials] = useState({});
   const orderRef = useRef(null);
+  const navigate = useNavigate();
 
   const promoApply = () => {
     toast.success("Code promo appliqué !", {
@@ -116,6 +119,11 @@ const Order = ({
     setCredentials({ ...credentials, [name]: value });
   };
 
+  const handleOrder = () => {
+    setOrderRecap(credentials);
+    navigate("/order-recap");
+  };
+
   useEffect(() => {
     const element = orderRef.current;
     gsap.registerPlugin(ScrollTrigger);
@@ -189,8 +197,9 @@ const Order = ({
                       type="tel"
                       name="cardExpi"
                       pattern="\d*"
-                      maxLength="7"
+                      maxLength="5"
                       onChange={(e) => handleChange(e)}
+                      placeholder="MM/AA"
                     />
                   </div>
 
@@ -299,7 +308,11 @@ const Order = ({
             </div>
 
             <div className="order-button-container">
-              <button className="order-button yellow-button">
+              <button
+                to="/order-recap"
+                className="order-button yellow-button"
+                onClick={() => handleOrder()}
+              >
                 Procéder au paiment
               </button>
             </div>
