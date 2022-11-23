@@ -4,6 +4,7 @@ import shop from "../../assets/img/bag.png";
 import closeShop from "../../assets/img/close.png";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import { useState } from "react";
 
 const Navbar = ({
   user,
@@ -16,6 +17,13 @@ const Navbar = ({
   setIsLogoAlreadyClicked,
 }) => {
   const { firstname, lastname } = user;
+  const [isMenuActive, setIsMenuActive] = useState(false);
+
+  if (isMenuActive) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "visible";
+  }
 
   const handleClick = () => {
     setIsShopActive(!isShopActive);
@@ -73,7 +81,68 @@ const Navbar = ({
                 onClick={() => handleClick()}
               />
             </div>
+            <div
+              className="burger-menu"
+              onClick={() => setIsMenuActive(!isMenuActive)}
+            >
+              <span
+                className={
+                  isMenuActive
+                    ? "burger-bar-active-top burger-bar"
+                    : "burger-bar"
+                }
+              ></span>
+              <span
+                className={
+                  isMenuActive
+                    ? "burger-bar-active-mid burger-bar"
+                    : "burger-bar"
+                }
+              ></span>
+              <span
+                className={
+                  isMenuActive
+                    ? "burger-bar-active-bottom burger-bar"
+                    : "burger-bar"
+                }
+              ></span>
+            </div>
+            <div
+              className={isMenuActive ? "mobile-nav active-nav" : "mobile-nav"}
+            >
+              <div className="overlay"></div>
+              <ul className="mobile-nav-list">
+                <li className="mobile-nav-item">
+                  <Link className="mobile-nav-link" to="/home" onClick={() => setIsMenuActive(!isMenuActive)}>
+                    Accueil
+                  </Link>
+                </li>
+
+                <li className="mobile-nav-item">
+                  <Link className="mobile-nav-link" to="/shopping-cart" onClick={() => setIsMenuActive(!isMenuActive)}>
+                    Mon panier
+                  </Link>
+                </li>
+
+                <li className="mobile-nav-item">
+                  <Link className="mobile-nav-link" to="/menus" onClick={() => setIsMenuActive(!isMenuActive)}>
+                    Menus
+                  </Link>
+                </li>
+                <li className="mobile-nav-item">
+                  <Link className="mobile-nav-link" to="/contact" onClick={() => setIsMenuActive(!isMenuActive)}>
+                    Contact
+                  </Link>
+                </li>
+                <li className="mobile-nav-item">
+                  <Link className="mobile-nav-link" to="/account" onClick={() => setIsMenuActive(!isMenuActive)}>
+                    Compte
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
+
           <ToastContainer />
         </nav>
       ) : null}

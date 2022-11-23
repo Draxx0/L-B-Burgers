@@ -14,7 +14,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 50px;
-    width: 25%;
+    width: 30%;
     background-color: #383636;
     padding: 30px;
     border-radius: 20px;
@@ -41,11 +41,12 @@
         font-weight: bold;
       }
 
-      label{
+      label {
         font-size: 1.3rem;
         text-align: start;
       }
     }
+
     input[type="submit"] {
       background-color: #f5c518;
       width: 60%;
@@ -60,11 +61,35 @@
       border: solid 3px transparent;
       transition: .3s ease-in-out all;
 
-      &:hover{
+      &:hover {
         background-color: transparent;
         color: #f5c518;
         border: solid 3px #f5c518;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1557px) {
+  .auth {
+    .auth-form {
+      width: 40%;
+    }
+  }
+}
+
+@media screen and (max-width: 927px) {
+  .auth {
+    .auth-form {
+      width: 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 581px) {
+  .auth {
+    .auth-form {
+      width: 80%;
     }
   }
 }

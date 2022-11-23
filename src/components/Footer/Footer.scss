@@ -68,3 +68,23 @@ footer {
         }
     }
 }
+
+@media screen and (max-width: 786px) {
+    footer .footer-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+        row-gap: 100px;
+    }
+}
+
+@media screen and (max-width: 511px) {
+    footer .footer-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer .footer-wrapper .footer-list {
+        align-items: center;
+    }
+}

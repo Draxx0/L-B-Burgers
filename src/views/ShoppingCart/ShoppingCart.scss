@@ -1,0 +1,122 @@
+.shopping-cart {
+    width: 80%;
+    margin: 100px auto;
+}
+
+
+.empty-basket {
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 100px 0;
+    font-weight: bold;
+}
+
+.shopping-cart {
+    .see-more {
+        margin: auto;
+        display: flex;
+    }
+}
+
+
+.shop-item-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    margin-top: 50px;
+    padding: 20px 0;
+
+    .shop-item {
+        width: 100%;
+        border-radius: 20px;
+        background-color: #383636;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        .shop-image-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+
+            .shop-image {
+                width: 80%;
+                margin: auto;
+            }
+        }
+
+        .shop-item-text {
+            height: 60%;
+            padding: 0px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 5px;
+
+            .shop-item-name {
+                font-size: 1.6rem;
+            }
+
+            .shop-item-price {
+                font-size: 1.4rem;
+            }
+
+            .shop-button-row {
+                gap: 10px;
+            }
+        }
+    }
+
+}
+
+.shop-delete-all {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+
+    .black-button {
+        background-color: #f5c518;
+    }
+}
+
+.order-btn {
+    display: flex;
+    margin: 50px auto auto auto;
+}
+
+.shop-total {
+    text-align: center;
+    gap: 20px;
+
+    .shop-total-text {
+        position: relative;
+        margin: auto;
+        font-size: 1.5em;
+        font-weight: bold;
+        width: fit-content;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 75%;
+            height: 3px;
+            border-radius: 50px;
+            background-color: #f5c518;
+        }
+    }
+
+    .shop-total-price {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+}
+
+
+@media screen and (max-width: 822px) {
+    .shop-item-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

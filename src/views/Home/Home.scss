@@ -67,7 +67,9 @@
             }
 
             .our-creations-item-img-wrapper {
+                position: relative;
                 height: 40%;
+                background-image: url('../../assets/img/BG.png');
 
                 .our-creations-item-img {
                     position: relative;
@@ -144,5 +146,192 @@
     100% {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1642px) {
+    .our-creations .our-creations-items-container .our-creations-item {
+        height: 500px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item .our-creations-item-img-wrapper .our-creations-item-img {
+        width: 330px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(1) .our-creations-item-img-wrapper .our-creations-item-img {
+        top: -30px;
+        left: 25px;
+        width: 400px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(3) .our-creations-item-img-wrapper .our-creations-item-img {
+        top: -10px;
+        left: 75px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(2) .our-creations-item-img-wrapper .our-creations-item-img {
+        top: -20px;
+        left: 75px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(4) .our-creations-item-img-wrapper .our-creations-item-img {
+        top: -10px;
+        left: 75px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item .our-creations-item-text .our-creation-item-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+}
+
+@media screen and (max-width: 1480px) {
+    .our-creations .our-creations-items-container {
+        grid-template-columns: repeat(1, 1fr);
+
+        .see-more {
+            margin: auto 0 auto auto;
+        }
+
+        .our-creations-item-description {
+            font-size: 1.2em;
+        }
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item .our-creations-item-text {
+        gap: 20px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item {
+        height: 600px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(1) .our-creations-item-img-wrapper .our-creations-item-img {
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 450px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(3) .our-creations-item-img-wrapper .our-creations-item-img {
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(2) .our-creations-item-img-wrapper .our-creations-item-img {
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(4) .our-creations-item-img-wrapper .our-creations-item-img {
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 1327px) {
+    .home-header {
+        .row {
+            flex-direction: column-reverse;
+            gap: 50px;
+
+            .slogan-container {
+                align-items: center;
+
+                .yellow-button {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 871px) {
+    .home-header .header-img {
+        width: 70%;
+    }
+
+    .home-header .slogan-container .slogan {
+        font-size: 1.7rem;
+    }
+
+    .home-header .row .slogan-container .yellow-button {
+        font-size: 1.5rem;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(2) .our-creations-item-img-wrapper .our-creations-item-img {
+        width: 350px;
+        top: -10px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(3) .our-creations-item-img-wrapper .our-creations-item-img {
+        width: 350px;
+        top: 0px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(4) .our-creations-item-img-wrapper .our-creations-item-img {
+        width: 350px;
+        top: 0px;
+    }
+}
+
+@media screen and (max-width: 722px) {
+    .our-creations .our-creations-items-container .our-creations-item {
+        height: 700px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(1) .our-creations-item-img-wrapper .our-creations-item-img {
+        width: 350px;
+        top: 20px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(2) .our-creations-item-img-wrapper .our-creations-item-img {
+        width: 300px;
+        top: 20px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(3) .our-creations-item-img-wrapper .our-creations-item-img {
+        width: 300px;
+        top: 20px;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(4) .our-creations-item-img-wrapper .our-creations-item-img {
+        width: 300px;
+        top: 20px;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .our-creations .our-creations-items-container {
+        place-items: start;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item {
+        width: 100%;
+        height: auto
+    }
+}
+
+@media screen and (max-width: 532px) {
+    .our-creations .our-creations-items-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item .our-creations-item-text .our-creation-item-footer .our-creation-item-stats {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .our-creations .our-creations-items-container .see-more {
+        margin: 0;
     }
 }

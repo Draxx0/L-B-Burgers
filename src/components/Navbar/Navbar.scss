@@ -44,13 +44,17 @@ nav {
       }
     }
 
+    .burger-menu,
+    .mobile-nav {
+      display: none;
+    }
 
     .shop-icon-active {
       position: fixed;
     }
 
     .nav-btn {
-      transition: .3s ease-in-out all;
+      transition: 0.3s ease-in-out all;
       transform-origin: top;
       z-index: 3;
 
@@ -59,5 +63,127 @@ nav {
         transform: scale(1.1);
       }
     }
+  }
+}
+
+@media screen and (max-width: 1268px) {
+  nav {
+    .nav-wrapper {
+      .nav-list {
+        display: none;
+      }
+
+      .nav-btn {
+        display: none;
+      }
+
+      .welcome-user {
+        font-size: 1.6em;
+      }
+
+      .burger-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 3;
+
+        .burger-bar {
+          width: 40px;
+          height: 4px;
+          background-color: white;
+          transition: 0.5s ease-in-out all;
+          border-radius: 50px;
+        }
+
+        .burger-bar-active-top {
+          transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .burger-bar-active-bottom {
+          transform: rotate(-45deg) translate(10px, -10px);
+        }
+
+        .burger-bar-active-mid {
+          transform: scale(0);
+        }
+      }
+
+      .mobile-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        right: -200%;
+        width: 100%;
+        height: 100vh;
+        background-color: #383636;
+        z-index: 2;
+        transition: 0.5s ease-in-out;
+        opacity: 0;
+        transform: scale(0);
+        transform-origin: top right;
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('../../assets/img/BG.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          opacity: 0.8;
+          z-index: 1;
+        }
+
+        .mobile-nav-list {
+          display: flex;
+          flex-direction: column;
+          gap: 50px;
+          font-size: 3em;
+          color: white;
+          z-index: 2;
+
+          .mobile-nav-link {
+            width: fit-content;
+            position: relative;
+            font-family: 'Montserrat Alternates', sans-serif;
+
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: -10px;
+              left: 0;
+              width: 75%;
+              height: 4px;
+              border-radius: 50px;
+              background-color: #f5c518;
+              transition: 0.3s ease-in-out all;
+            }
+          }
+        }
+      }
+
+      .active-nav {
+        right: 0;
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  nav .nav-wrapper .welcome-user {
+    font-size: 1.2rem;
+  }
+}
+
+
+@media screen and (max-width: 560px) {
+  nav .nav-wrapper .welcome-user {
+    display: none;
   }
 }
