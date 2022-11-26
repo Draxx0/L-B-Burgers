@@ -54,3 +54,22 @@
     right: 5%;
     transition: 1s ease-in-out all;
 }
+
+@media screen and (max-width: 1700px) {
+    .coupon-code {
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 1249px) {
+    .coupon-code {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .coupon-code {
+        width: 95%;
+        right: 2.5%;
+    }
+}

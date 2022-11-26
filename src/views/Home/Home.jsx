@@ -39,7 +39,7 @@ const Home = ({ burgers, user, couponCode }) => {
 
   return (
     <>
-      <section id="home">
+      <section id="home" onClick={() => isHomeLoaded && setIsHomeLoaded(false)}>
         <Coupon
           user={user}
           isHomeLoaded={isHomeLoaded}

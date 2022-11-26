@@ -3,18 +3,26 @@ import { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
 
 const Contact = ({ user }) => {
+  const navigate = useNavigate();
   const [credentials, setCredentials] = useState({});
   const { firstname, lastname } = user;
   const contactRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toast.success("Votre message a bien été envoyé !", {
-      position: "bottom-right",
-    });
-    setCredentials({});
+    setCredentials("");
+    toast.success(
+      "Votre message a bien été envoyé ! Vous allez être redirigé",
+      {
+        position: "bottom-right",
+      }
+    );
+    setTimeout(() => {
+      navigate("/home");
+    }, 3000);
   };
 
   const handleChange = (e) => {
@@ -59,6 +67,7 @@ const Contact = ({ user }) => {
                   name="firstname"
                   value={firstname}
                   onChange={(e) => handleChange(e)}
+                  required
                 />
               </div>
 
@@ -70,6 +79,7 @@ const Contact = ({ user }) => {
                   name="lastname"
                   value={lastname}
                   onChange={(e) => handleChange(e)}
+                  required
                 />
               </div>
 
@@ -82,6 +92,7 @@ const Contact = ({ user }) => {
                   id=""
                   className="form-input"
                   onChange={(e) => handleChange(e)}
+                  required
                 >
                   <option value="Sélectionner le sujet">
                     Sélectionner le sujet
@@ -109,6 +120,7 @@ const Contact = ({ user }) => {
                   rows="13"
                   name="request"
                   onChange={(e) => handleChange(e)}
+                  required
                 ></textarea>
               </div>
             </div>

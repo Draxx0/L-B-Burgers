@@ -76,6 +76,7 @@
             textarea {
                 height: 100%;
                 padding: 30px 20px;
+                border-radius: 10px;
             }
         }
 
@@ -86,4 +87,19 @@
         }
     }
 
+}
+
+@media screen and (max-width: 1330px) {
+    #contact .contact-form .row {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    #contact .contact-form .row .left-form {
+        width: 100%;
+    }
+
+    #contact .contact-form .row .right-form {
+        width: 100%;
+    }
 }

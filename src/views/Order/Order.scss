@@ -11,6 +11,7 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
         gap: 50px;
+        margin-top: 100px;
 
         .order-item {
             display: flex;
@@ -176,5 +177,85 @@
         .empty-text {
             font-size: 1.6rem;
         }
+    }
+}
+
+@media screen and (max-width: 1430px) {
+    .order .order-item-container {
+        grid-template-columns: repeat(1, 1fr);
+        width: 60%;
+        margin: 100px auto auto auto;
+    }
+}
+
+@media screen and (max-width: 1316px) {
+    .order .order-footer {
+        gap: 200px;
+    }
+
+    .order .footer-form .form-group input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1092px) {
+
+    .order .order-item-container .order-item .order-item-text .order-item-name,
+    .order .order-item-container .order-item .order-item-text .order-item-price,
+    .order .order-item-container .order-item .order-item-text .order-item-quantity {
+        font-size: 1rem;
+    }
+
+    .order .order-item-container {
+        width: 80%;
+    }
+
+    .order .order-total-price .form-coupon .form-group input {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 816px) {
+    .order .order-footer {
+        gap: 100px;
+    }
+}
+
+@media screen and (max-width: 739px) {
+    .order .order-footer {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .order .order-item-container .order-item .order-item-text {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .order .order-item-container .order-item {
+        gap: 20px;
+    }
+
+    .order .order-footer .left-footer,
+    .order .order-footer .right-footer {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 567px) {
+    .order .order-total-price .form-coupon .form-group input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 476px) {
+    .order .order-total-price .form-coupon .form-group input {
+        width: 100%;
+    }
+
+    .order .order-total-price .order-total-price-title {
+        font-size: 1.7rem;
     }
 }

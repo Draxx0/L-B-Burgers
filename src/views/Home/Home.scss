@@ -335,3 +335,19 @@
         margin: 0;
     }
 }
+
+@media screen and (max-width: 425px) {
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(2) .our-creations-item-img-wrapper .our-creations-item-img,
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(3) .our-creations-item-img-wrapper .our-creations-item-img,
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(4) .our-creations-item-img-wrapper .our-creations-item-img {
+        width: 250px;
+        top: 0;
+    }
+
+    .our-creations .our-creations-items-container .our-creations-item:nth-child(1) .our-creations-item-img-wrapper .our-creations-item-img {
+        width: 300px;
+        top: 0;
+    }
+
+}

@@ -2,7 +2,7 @@
     width: 80%;
     margin: 100px auto auto auto;
 
-    .page-title{
+    .page-title {
         margin-bottom: 30px;
     }
 
@@ -49,7 +49,7 @@
         .coupon-code-text {
             animation: fadeIn 1s ease-in-out forwards;
 
-            &:hover{
+            &:hover {
                 cursor: pointer;
                 color: #383636;
             }
@@ -65,4 +65,31 @@
     100% {
         opacity: 1;
     }
+}
+
+@media screen and (max-width:1180px) {
+    #account .account-form {
+        width: 60%;
+    }
+
+    #account .coupon-code-container {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width:862px) {
+    #account .account-form {
+        width: 75%;
+    }
+
+    #account .row {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    #account .coupon-code-container,
+    #account .account-form {
+        width: 100%;
+    }
+
 }

@@ -186,6 +186,7 @@ const Order = ({
                       inputMode="numeric"
                       placeholder="0000-0000-0000-0000"
                       onChange={(e) => handleChange(e)}
+                      required
                     />
                   </div>
 
@@ -200,6 +201,7 @@ const Order = ({
                       maxLength="5"
                       onChange={(e) => handleChange(e)}
                       placeholder="MM/AA"
+                      required
                     />
                   </div>
 
@@ -213,6 +215,7 @@ const Order = ({
                       placeholder="***"
                       maxLength="3"
                       onChange={(e) => handleChange(e)}
+                      required
                     />
                   </div>
 
@@ -225,6 +228,7 @@ const Order = ({
                       name="cardName"
                       placeholder="Votre nom"
                       onChange={(e) => handleChange(e)}
+                      required
                     />
                   </div>
                 </form>
@@ -242,6 +246,7 @@ const Order = ({
                         name="deliveryCity"
                         placeholder="Votre ville"
                         onChange={(e) => handleChange(e)}
+                        required
                       />
                     </div>
 
@@ -254,6 +259,7 @@ const Order = ({
                         name="deliveryPostalCode"
                         placeholder="94300"
                         onChange={(e) => handleChange(e)}
+                        required
                       />
                     </div>
 
@@ -266,6 +272,7 @@ const Order = ({
                         name="deliveryAddress"
                         placeholder="44 rue de la paix"
                         onChange={(e) => handleChange(e)}
+                        required
                       />
                     </div>
 
@@ -278,6 +285,7 @@ const Order = ({
                         name="deliveryAddressFacturation"
                         placeholder="44 rue de la paix"
                         onChange={(e) => handleChange(e)}
+                        required
                       />
                     </div>
                   </form>
@@ -287,7 +295,8 @@ const Order = ({
 
             <div className="order-total-price">
               <span className="order-total-price-title">
-                Total à payer {basketTotalPrice} €
+                Total à payer{" "}
+                <span className="colored"> {basketTotalPrice} € </span>
               </span>
               <form
                 action=""
