@@ -7,6 +7,7 @@ import Shop from "./components/Shop/Shop";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer/Footer";
 import { gsap } from "gsap";
+import { toast, ToastContainer } from "react-toastify";
 
 function App() {
   const [user, setUser] = useState([]);
@@ -44,6 +45,9 @@ function App() {
     fetchBurgers();
     fetchMenus();
     setAppReveal(true);
+    toast.info(
+      "L'app est toujours en constructions, merci de votre compréhension !"
+    );
     appReveal && gsap.from(appRef.current, { duration: 1, opacity: 0 });
   }, [appReveal]);
 
@@ -94,6 +98,7 @@ function App() {
           setBasketTotalPrice={setBasketTotalPrice}
         />
       </BrowserRouter>
+      <ToastContainer />
     </div>
   );
 }
