@@ -296,7 +296,7 @@ const Order = ({
             <div className="order-total-price">
               <span className="order-total-price-title">
                 Total à payer{" "}
-                <span className="colored"> {basketTotalPrice} € </span>
+                <span className="colored"> {basketTotalPrice.toFixed(2)} € </span>
               </span>
               <form
                 action=""
