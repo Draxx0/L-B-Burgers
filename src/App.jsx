@@ -45,9 +45,6 @@ function App() {
     fetchBurgers();
     fetchMenus();
     setAppReveal(true);
-    toast.info(
-      "L'app est toujours en constructions, merci de votre compréhension !"
-    );
     appReveal && gsap.from(appRef.current, { duration: 1, opacity: 0 });
   }, [appReveal]);
 
